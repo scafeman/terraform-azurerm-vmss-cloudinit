@@ -1,11 +1,11 @@
 variable "resource_group_name" {
   description = "The name of the resource group in which the resources will be created"
-  default     = "vmssrg"
+  default     = "rg-eus-mscafe-terraform"
 }
 
 variable "location" {
   description = "The location where the resources will be created"
-  default     = ""
+  default     = "eastus"
 }
 
 variable "vm_size" {
@@ -14,7 +14,7 @@ variable "vm_size" {
 }
 
 variable "vmscaleset_name" {
-  default     = "vmscaleset"
+  default     = "vmss-eus-web"
   description = "The name of the VM scale set that will be created in Azure"
 }
 
@@ -35,17 +35,18 @@ variable "data_disk_size" {
 
 variable "admin_username" {
   description = "The admin username of the VMSS that will be deployed"
-  default     = "azureuser"
+  default     = "mscafe"
 }
 
-variable "admin_password" {
-  description = "The admin password to be used on the VMSS that will be deployed. The password must meet the complexity requirements of Azure"
-  default     = ""
-}
+#variable "admin_password" {
+#  description = "The admin password to be used on the VMSS that will be deployed. The password must meet the complexity requirements of Azure"
+#  default     = ""
+#}
 
 variable "ssh_key" {
   description = "Path to the public key to be used for ssh access to the VM"
   default     = "~/.ssh/id_rsa.pub"
+
 }
 
 variable "nb_instance" {
@@ -55,16 +56,19 @@ variable "nb_instance" {
 
 variable "vnet_subnet_id" {
   description = "The subnet id of the virtual network on which the vm scale set will be connected"
+  default     = "/subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/virtualNetworks/vnet-eus-terraform/subnets/sn-eus-internal"
+
 }
 
 variable "network_profile" {
-  default     = "terraformnetworkprofile"
   description = "The name of the network profile that will be used in the VM scale set"
+  default     = "terraformnetworkprofile"
+
 }
 
 variable "vm_os_simple" {
   description = "Specify Ubuntu or Windows to get the latest version of each os"
-  default     = ""
+  default     = "UbuntuServer"
 }
 
 variable "vm_os_publisher" {
@@ -94,6 +98,8 @@ variable "vm_os_id" {
 
 variable "load_balancer_backend_address_pool_ids" {
   description = "The id of the backend address pools of the loadbalancer to which the VM scale set is attached"
+  default     = "/subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/loadBalancers/elb-eus-web/backendAddressPools/BackEndAddressPool"
+
 }
 
 variable "tags" {
@@ -107,4 +113,6 @@ variable "tags" {
 
 variable "cloudconfig_file" {
   description = "The location of the cloud init configuration file."
+  default     = "cloudconfig.tpl"
+
 }

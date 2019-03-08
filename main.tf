@@ -31,7 +31,7 @@ data "template_cloudinit_config" "config" {
   }
 }
 
-resource "azurerm_virtual_machine_scale_set" "vm-linux" {
+resource "azurerm_virtual_machine_scale_set" "vmss-eus-web" {
   count               = "${var.nb_instance}"
   name                = "${var.vmscaleset_name}"
   location            = "${var.location}"
@@ -70,7 +70,7 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
   os_profile {
     computer_name_prefix = "${var.computer_name_prefix}"
     admin_username       = "${var.admin_username}"
-    admin_password       = "${var.admin_password}"
+    #admin_password       = "${var.admin_password}"
     custom_data          = "${data.template_cloudinit_config.config.rendered}"
   }
 
@@ -89,6 +89,7 @@ resource "azurerm_virtual_machine_scale_set" "vm-linux" {
 
     ip_configuration {
       name                                   = "IPConfiguration"
+      primary                                = true
       subnet_id                              = "${var.vnet_subnet_id}"
       load_balancer_backend_address_pool_ids = ["${var.load_balancer_backend_address_pool_ids}"]
     }

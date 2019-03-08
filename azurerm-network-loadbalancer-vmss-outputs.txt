@@ -1,0 +1,50 @@
+Outputs:
+
+vnet_address_space = [
+    10.20.0.0/22
+]
+vnet_id = /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/virtualNetworks/vnet-eus-terraform
+vnet_location = eastus
+vnet_name = vnet-eus-terraform
+vnet_subnets = [
+    /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/virtualNetworks/vnet-eus-terraform/subnets/sn-eus-internal
+]
+
+Outputs:
+
+azurerm_lb_backend_address_pool_id = /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/loadBalancers/elb-eus-web/backendAddressPools/BackEndAddressPool
+azurerm_lb_frontend_ip_configuration = [
+    {
+        inbound_nat_rules = [],
+        load_balancer_rules = [],
+        name = myPublicIP,
+        private_ip_address = ,
+        private_ip_address_allocation = Dynamic,
+        public_ip_address_id = /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/publicIPAddresses/elb-eus-PIP,
+        subnet_id = ,
+        zones = []
+    }
+]
+azurerm_lb_id = /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/loadBalancers/elb-eus-web
+azurerm_lb_nat_rule_ids = [
+    /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/loadBalancers/elb-eus-web/inboundNatRules/VM-0
+]
+azurerm_lb_probe_ids = [
+    /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/loadBalancers/elb-eus-web/probes/http
+]
+azurerm_public_ip_address = [
+    40.114.81.6
+]
+azurerm_public_ip_id = [
+    /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Network/publicIPAddresses/elb-eus-PIP
+]
+azurerm_resource_group_name = rg-eus-mscafe-terraform
+azurerm_resource_group_tags = {
+  source = terraform
+}
+  
+  Outputs:
+
+vmss_id = [
+    /subscriptions/8b4408ad-500e-49e3-a5f3-231f895d8325/resourceGroups/rg-eus-mscafe-terraform/providers/Microsoft.Compute/virtualMachineScaleSets/vmss-eus-web
+]
